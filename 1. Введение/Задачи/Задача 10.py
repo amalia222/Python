@@ -11,5 +11,5 @@ b = math.sqrt((x3 - x2) ** 2 + (y3 - y2) ** 2)
 c = math.sqrt((x1 - x3) ** 2 + (y1 - y3) ** 2)
 P = (a + b + c) / 2
 S = math.sqrt(P * (P - a) * (P - b) * (P - c))
-print(f"Периметр = {P*2}")
+print(f"Периметр = {P * 2}")
 print(f"Площадь = {S}")
