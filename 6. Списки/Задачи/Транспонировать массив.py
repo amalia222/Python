@@ -1,6 +1,5 @@
 def transpose(matrix):
-    # TODO: Реализация
-    pass
+    return [[matr[i][j] for j in range(len(matr))] for i in range(len(matr[0]))]
 
 
 def print_matrix(matrix):
@@ -10,5 +9,4 @@ def print_matrix(matrix):
 
 n, m = [int(i) for i in input().split()]
 matr = [[int(i) for i in input().split()] for j in range(n)]
-trans_matr = [[matr[i][j] for j in range(len(matr))] for i in range(len(matr[0]))]
-print_matrix(trans_matr)
+print_matrix(transpose(matr))

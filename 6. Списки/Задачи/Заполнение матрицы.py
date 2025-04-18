@@ -18,8 +18,7 @@ def andrew_cross(n):
 
 
 def quadrants(n):
-    # TODO: Реализация
-    pass
+    return [[0 if i == j or i + j == n - 1 else 1 if i < j else 2 if j > n - 1 - i else 3 if i > j else 4 for j in range(n)] for i in range(n)]
 
 
 def nested_rest(n, m):
