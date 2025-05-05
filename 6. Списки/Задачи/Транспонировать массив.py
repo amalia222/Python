@@ -1,5 +1,5 @@
 def transpose(matrix):
-    return [[matr[i][j] for j in range(len(matr))] for i in range(len(matr[0]))]
+    return [[matr[j][i] for j in range(len(matr))] for i in range(len(matr[0]))]
 
 
 def print_matrix(matrix):
