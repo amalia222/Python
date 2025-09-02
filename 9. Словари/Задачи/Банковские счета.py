@@ -35,7 +35,7 @@ def income(p):
 
 
 strs = input().split()
-while strs != ' ':
+while strs != '':
     operation = strs[0]
     if operation == 'DEPOSIT':
         name = strs[1]
@@ -56,4 +56,4 @@ while strs != ' ':
     elif operation == 'INCOME':
         p = int(strs[1])
         income(p)
-strs = input()
+    strs = input().strip('\n').split()
