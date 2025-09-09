@@ -16,11 +16,9 @@ def can_form_palindrome(s):
     mid = ''
     for i in range(25, -1, -1):
         char = chr(ord('A') + i)
-        count1 = sps[i]
-        if count1 % 2 == 1:
+        if sps[i] % 2 == 1:
             mid = char
-        for j in range(count1 // 2):
-            left += char
+        left += char * (sps[i] // 2)
 
     return left + mid + left[::-1]
 
