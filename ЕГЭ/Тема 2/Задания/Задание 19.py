@@ -10,11 +10,6 @@ answer = ...
 
 #
 
-import datetime
-import hashlib
-from ЕГЭ.tests.conftest import add_result
-
+from tests.conftest import result_register
 if answer is not Ellipsis:
-    result = 1 if hashlib.md5(str(answer).encode()).hexdigest() == 'b83215ff76ddd410e32571919b78d0eb' else 0
-    print("Верно" if result else "Неверно")
-    add_result(datetime.now().timestamp(), 19, 2, result)
+    print(result_register(2, 19, answer, 'b83215ff76ddd410e32571919b78d0eb'))
