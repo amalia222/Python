@@ -1,4 +1,4 @@
-# Πεψενθε
+# Π ΠµΡΠµΠ½ΠΈΠµ
 
 from itertools import product, permutations
 
@@ -17,7 +17,7 @@ for a0, a1, a2, a3, a4, a5, a6, a7 in product((0, 1), repeat = 8):
                 print(x, y, z, w, u)
                 break
 
-answer = wzyxu
+answer = "wzyxu"
 
 #
 
