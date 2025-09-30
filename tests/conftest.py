@@ -22,13 +22,13 @@ def create_new_db():
     with sqlite3.connect(db_path()) as connection:
         cursor = connection.cursor()
         cursor.execute('''
-        CREATE TABLE IF NOT EXISTS test (
-            date_time   DATETIME,
-            task_number BIGINT,
-            task_type   INTEGER,
-            result      INTEGER
-        )
-        ''')
+                       CREATE TABLE IF NOT EXISTS test (
+                                                           date_time   DATETIME,
+                                                           task_number BIGINT,
+                                                           task_type   INTEGER,
+                                                           result      INTEGER
+                       )
+                       ''')
 
 
 def add_result(date_time, task_number, task_type, result):
@@ -163,7 +163,7 @@ def result_register(task_type, number, result, right_result):
     add_result(datetime.now().isoformat(), number, task_type, res)
 
     def mark_task_files(task_type, number, is_correct):
-        """Ищет файлы задания (.md и .png) и переименовывает, добавляя префикс '+' или '-'"""
+        """Ищет файлы задания (.md и .png и пр.) и переименовывает, добавляя префикс '+' или '-'"""
         try:
             t = int(task_type)
             n = int(number)
@@ -174,13 +174,17 @@ def result_register(task_type, number, result, right_result):
         task_dir = os.path.join(repo_root(), f"Тема {t}", "Задания")
 
         if not os.path.isdir(task_dir):
+            task_dir = os.path.join(repo_root(), "ЕГЭ", f"Тема {t}", "Задания")
+        if not os.path.isdir(task_dir):
             return []
 
-        base_names = [f"Задание {n}.md", f"Задание {n}.png"]
+        # Список поддерживаемых расширений файлов
+        extensions = ['.md', '.png', '.py', '.jpg', '.ods', '.xlsx']
         sign = '+' if is_correct else '-'
         renamed = []
 
-        for base_name in base_names:
+        for ext in extensions:
+            base_name = f"Задание {n}{ext}"
             # Кандидаты: без префикса и с обоими префиксами
             candidates = [
                 os.path.join(task_dir, base_name),
@@ -208,10 +212,6 @@ def result_register(task_type, number, result, right_result):
         return renamed
 
     mark_task_files(task_type, number, res == 1)
-    fig = show_common_progress()      # открыть окно
+    fig = show_common_progress()
     fig.savefig(f'{repo_root()}/tests/common_progress.png')
     return "Верно" if res else "Неверно"
-
-
-fig = show_common_progress()      # открыть окно
-fig.savefig(f'{repo_root()}/tests/common_progress.png')
