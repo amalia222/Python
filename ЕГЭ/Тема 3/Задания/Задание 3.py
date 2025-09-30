@@ -1,6 +1,6 @@
-answer = 6749260
+answer = 3570
 
-#
+
 
 from tests.conftest import result_register
 if answer is not Ellipsis:
