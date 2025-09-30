@@ -6,10 +6,10 @@
 
 
 
-answer = 67
+answer = "wzyx"
 
 #
 
 from tests.conftest import result_register
 if answer is not Ellipsis:
-    print(result_register(1, 1, answer, '735b90b4568125ed6c3f678819b6e058'))
+    print(result_register(2, 2, answer, 'e0abee87e4ba1de22c6b8cf076c5016b'))
