@@ -1,12 +1,6 @@
 # Решение
 
-
-
-
-
-
-
-answer = "ywzx"
+answer = "ywxz"
 
 #
 
