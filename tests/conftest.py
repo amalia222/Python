@@ -36,6 +36,14 @@ def add_result(date_time, task_number, task_type, result):
         create_new_db()
     with sqlite3.connect(db_path()) as connection:
         cursor = connection.cursor()
+        # Проверяем, есть ли уже запись с таким task_number и task_type
+        existing = get_result(task_number, task_type)
+        
+        # Если запись существует и последний результат был правильным (1), не добавляем новую запись
+        if existing and existing[3] == 1:
+            return  # Не добавляем дубликат правильного ответа
+        
+        # В остальных случаях добавляем новую запись
         cursor.execute('INSERT INTO test (date_time, task_number, task_type, result) VALUES (?, ?, ?, ?)',
                        (date_time, task_number, task_type, result))
 
@@ -215,3 +223,5 @@ def result_register(task_type, number, result, right_result):
     fig = show_common_progress()
     fig.savefig(f'{repo_root()}/tests/common_progress.png')
     return "Верно" if res else "Неверно"
+fig = show_common_progress()
+fig.savefig(f'{repo_root()}/tests/common_progress.png')
