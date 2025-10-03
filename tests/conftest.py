@@ -223,5 +223,3 @@ def result_register(task_type, number, result, right_result):
     fig = show_common_progress()
     fig.savefig(f'{repo_root()}/tests/common_progress.png')
     return "Верно" if res else "Неверно"
-fig = show_common_progress()
-fig.savefig(f'{repo_root()}/tests/common_progress.png')
