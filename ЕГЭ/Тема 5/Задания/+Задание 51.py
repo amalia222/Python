@@ -1,9 +1,5 @@
-def alg_14(n):
-    binary = bin(n)[2:]
-    bi2 = bin(n % 4)[2:]
-    r = binary + bi2
-    return int(r, 2)
-
+# Решение
+'''
 def alg_51(n):
     binary = bin(n)[2:]
     binary += bin(n % 3)[2:].zfill(2)
@@ -19,3 +15,11 @@ while n <= 45138888:
         if alg_51(n) == i:
             count += 1
     n += 1
+'''
+answer = 10416665
+
+#
+
+from tests.conftest import result_register
+if answer is not Ellipsis:
+    print(result_register(5, 51, answer, '389499b02f30212486e408cd73a5bc50'))
