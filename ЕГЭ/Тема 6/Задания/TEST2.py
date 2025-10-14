@@ -1,16 +1,20 @@
 from turtle import *
-tracer(1)
-k = 18
+tracer(0)
+k = 20
+x = 6
 
 down()
 
-for i in range(1, 5):
-    for j in range(1, 5):
-        forward(6 * k)
-        right(90)
-    forward(10 * k)
+forward((x + 2) * k)
+for i in range(4):
+    forward(x * k)
     right(90)
-    forward(3 * k)
+    forward((x + 2) * k)
+right(90)
+forward(2 * x * k)
+for i in range(4):
+    right(90)
+    forward((3 * x - 1) * k)
 
 up()
 
