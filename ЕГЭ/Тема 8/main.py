@@ -1,11 +1,11 @@
 from itertools import product
+print(list(product('ЛНРТ', repeat=5))[149])
 
-s = product('1234', repeat=2)
-for line in s:
-    print(''.join(line))
 
-print()
-
-for i in '1234':
-    for j in '1234':
-        print(f'{i}{j}')
+from itertools import product
+count = 1
+for p in product('УОА', repeat=6):
+    if ''.join(p) == 'ОУУУОО':
+        break
+    count += 1
+print(count)
