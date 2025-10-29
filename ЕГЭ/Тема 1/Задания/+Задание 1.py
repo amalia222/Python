@@ -1,12 +1,12 @@
 # Решение
 from itertools import permutations
 
-table = '14 17 25 26 34 36 41 43 47 52 56 57 62 63 65 71 74 75'
-graph = 'АБ БА АВ ВА БГ ГБ БД ДБ ВК КВ ВЕ ЕВ ГД ДГ ДЕ ЕД ЕК КЕ'
+table = '12 15 18 21 24 36 37 42 48 51 56 63 65 67 73 76 78 81 84 87'
+graph = 'AH HA HF FH HB BH BD DB DF FD FE EF EG GE EC CE CG GC AG GA'
 
-for p in permutations('АБВГДЕК'):
+for p in permutations('ABCDEFGH'):
     new_graph = table
-    for i in range(1, 8):
+    for i in range(1, 9):
         new_graph = new_graph.replace(str(i), p[i - 1])
     if set(new_graph.split()) == set(graph.split()):
         print(p)
