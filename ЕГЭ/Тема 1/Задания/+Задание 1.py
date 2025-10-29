@@ -1,8 +1,8 @@
 # Решение
 from itertools import permutations
 
-table = '12 15 18 21 24 36 37 42 48 51 56 63 65 67 73 76 78 81 84 87'
-graph = 'AH HA HF FH HB BH BD DB DF FD FE EF EG GE EC CE CG GC AG GA'
+table = '15 17 24 25 27 34 36 42 43 46 51 52 63 64 68 71 72 78 86 87'
+graph = 'AE EA EB BE BF FB BD DB DH HD DG GD GH HG GC CG CF FC FA AF'
 
 for p in permutations('ABCDEFGH'):
     new_graph = table
