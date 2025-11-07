@@ -1,21 +1,16 @@
-from turtle import *
-tracer(1)
-k = 18
-
-down()
-
-for i in range(1, 5):
-    for j in range(1, 5):
-        forward(6 * k)
-        right(90)
-    forward(10 * k)
-    right(90)
-    forward(3 * k)
-
-up()
-
-for x in range(-k, k):
-    for y in range(-k, k):
-        goto(x * k, y * k)
-        dot(3)
-exitonclick()
+from itertools import *
+list_val = list(permutations('ХОЧУНАБЮДЖЕТ', 12))
+count = 0
+count1 = 0
+g = list(permutations('ОУАЮЕ', 5))
+print(count)
+for s in list_val:
+    s = ''.join(s)
+    for i in g:
+        i = ''.join(i)
+        if s.count(i) != 0:
+            count += 1
+    if count == 0:
+        count1 += 1
+print(count1)
+print(len(list_val))

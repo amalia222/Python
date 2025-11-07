@@ -1,9 +1,18 @@
-from sys import *
-setrecursionlimit(3000)
-def f(n):
-    if n == 1:
-        return 1
-    if n > 1:
-        return n * f(n - 1)
+from turtle import *
+k = 20
+tracer(0)
 
-print(((f(2025) // 25) + f(2024)) // f(2023))
+down()
+
+for i in range(7):
+    forward(k * 10)
+    right(120)
+
+up()
+
+for x in range(-k, k):
+    for y in range(-k, k):
+        goto(x * k, y * k)
+        dot(3)
+
+exitonclick()
