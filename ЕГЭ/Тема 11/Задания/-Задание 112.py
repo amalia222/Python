@@ -1,5 +1,5 @@
 
-answer = 512
+answer = 256
 
 #
 
