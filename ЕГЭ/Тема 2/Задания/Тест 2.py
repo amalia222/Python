@@ -1,20 +1,11 @@
-n = ''
-def tb(num):
-    if num == 0:
-        return
-    tb(num // 27)
-    global n
-    n += str(num % 27)
-    return num % 27
+from sys import setrecursionlimit
+setrecursionlimit(10000)
+def f(n):
+    if n == 41:
+        return 41
+    elif n > 41 and n % 2 == 0:
+        return f(n - 1) - n
+    elif n > 41 and n % 2 != 0:
+        return n * f(n - 2)
 
-tb(2 * 729 ** 75 + 2 * 243 ** 78 + 81 ** 81 + 2 + 27 ** 84 + 2 * 9 ** 87 + 58)
-n = n.lstrip('0')
-print(n.count('0'))
-
-def convert_to(num, base):
-    digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    result = ''
-    while num > 0:
-        result += digits[num % base]
-        num //= base
-    return result[::-1]
+print(f(9094)//f(9089))
