@@ -1,12 +1,8 @@
-# Решение
+for a in range(400):
+    if all((y > a) or (152 != 2 * y + 3 * x) or (a < x) for x in range(1000) for y in range(1000)):
+        print(a)
 
-
-
-
-
-
-
-answer = ...
+answer = 30
 
 #
 

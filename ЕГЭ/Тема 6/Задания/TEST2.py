@@ -1,5 +1,13 @@
-from itertools import *
-m = list(permutations('13579', 4))
-n = [p for p in product('02468', repeat=4) if p[0] != '0']
-for i in m:
-    print(*i, end = '\n')
+from sys import setrecursionlimit
+setrecursionlimit(10000)
+
+def g(n):
+  if n <= 25:
+    return 2 * (n + 1)
+  else:
+    return g(n - 4) + n
+
+def f(n):
+  return g(n - 1) - g(n - 5)
+
+print(f(150774))
