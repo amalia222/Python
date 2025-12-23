@@ -8,13 +8,13 @@ def tr(n):
 def alg(n):
     tr_n = tr(n)
     if n % 3 == 0:
-        tr_n = tr_n + tr_n[-3:]
+        tr_n = '1' + tr_n + '02'
     else:
-        tr_n = tr_n + tr(n % 3 * 3)
+        tr_n = tr_n + tr(n % 3 * 4)
     return int(tr_n, 3)
 
-s = []
 for n in range(1, 100):
-    if alg(n) <= 138:
-        s.append(alg(n))
-print(max(s))
+    if alg(n) <= 250:
+        print(n)
+
+

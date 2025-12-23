@@ -1,43 +1,16 @@
-from turtle import *
-tracer(0)
-k = 15
-
-for i in range(4):
-    forward(16 * k)
-    right(90)
-    forward(18 * k)
-    right(90)
-
-up()
-
-right(90)
-forward(10 * k)
-left(90)
-forward(10 * k)
-
-down()
-
-for i in range(4):
-    forward(15 * k)
-    right(90)
-
-up()
-
-forward(1 * k)
-left(90)
-forward(1 * k)
-right(90)
-
-down()
-
-for i in range(7):
-    forward(12 * k)
-    right(90)
-
-up()
-for x in range(-k * 2, k * 2):
-    for y in range(-k * 2, k * 2):
-        goto(x * k, y * k)
-        dot(3)
-
-exitonclick()
+'''
+s = []
+for x in range(10, 200):
+    for y in range(10, 200):
+        if 3 * x + 5 * y == 340:
+            s.append(500 * (x ** 2 + y ** 2))
+            if 500 * (x ** 2 + y ** 2) == 1700000:
+                print(x, y)
+print(min(s))
+'''
+s = []
+for x in range(10, 200):
+    for y in range(10, 200):
+        if 400 * x ** 2 + 500 * y ** 2 == 7200000:
+            s.append(x + y)
+print(max(s))
