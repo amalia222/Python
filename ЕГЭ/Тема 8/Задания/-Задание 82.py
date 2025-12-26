@@ -6,8 +6,7 @@ for i in range(len(list_val)):
         s = ''.join(list_val[i])
         if s.count('О') == 2:
             if s[0] !='А' and s[0] !='С' and s[0] !='Т':
-                if i > max_index:
-                    max_index = i
+                max_index = i
 print(max_index)
 answer = 5162
 
