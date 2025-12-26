@@ -8,7 +8,7 @@ for i in range(len(list_val)):
             if s[0] !='А' and s[0] !='С' and s[0] !='Т':
                 max_index = i
 print(max_index)
-answer = 5162
+answer = 5163
 
 #
 
