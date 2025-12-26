@@ -14,7 +14,7 @@ for a0, a1, a2, a3 in product((0, 1), repeat = 4):
                 print(x, y, z, w)
 answer = 'yxwz'
 
-#
+
 
 from tests.conftest import result_register
 if answer is not Ellipsis:

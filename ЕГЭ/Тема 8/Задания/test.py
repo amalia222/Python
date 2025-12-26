@@ -1,29 +1,13 @@
-from turtle import *
-tracer(0)
-k = 25
-
-down()
-
-for i in range(6):
-  forward(7 * k)
-  right(120)
-
-up()
-
-forward(3 * k)
-right(90)
-
-down()
-
-for i in range(8):
-  forward(5 * k)
-  right(90)
-
-up()
-
-for x in range(-k, k):
-  for y in range(-k, k):
-    goto(x * k, y * k)
-    dot(3)
-
-exitonclick()
+from itertools import *
+list_val = list(product('АКОРСТ', repeat = 5))
+max_index = 0
+for i in list_val:
+  if list_val.index(i) % 2 == 0:
+    curr_index = list_val.index(i)
+    i = ''.join(i)
+    if i.count('О') == 2:
+      if i[0] not in 'АСТ':
+        max_index = curr_index
+print(max_index)
+print(list_val[5184])
+print(list_val[5184])
