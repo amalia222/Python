@@ -1,7 +1,7 @@
 from itertools import *
 list_val = list(product('БКФЦ', repeat = 5))
 print(list_val[238])
-answer = 'БЦФЦЦ'
+answer = 'БЦФЦф'
 
 #
 
