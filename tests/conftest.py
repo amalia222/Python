@@ -493,7 +493,7 @@ def result_register(task_type, number, result, right_result):
             return []
 
         # Список поддерживаемых расширений файлов
-        extensions = ['.md', '.png', '.py', '.jpg', '.ods', '.xlsx', '.odt', '.docx', '.doc', '.xls', '.csv', '.txt']
+        extensions = ['.md', '.png', '.py', '.jpg', '.ods', '.xlsx', '.odt', '.docx', '.doc', '.xls', '.csv', '.txt', 'pdf']
         # Список найденных файлов
         files = []
         sign = '+' if is_correct else '-'
