@@ -1,20 +1,5 @@
-def tr(n):
-    del3 = ''
-    while n != 0:
-        del3 += str(n % 3)
-        n //= 3
-    return del3[::-1]
-
-def alg(n):
-    tr_n = tr(n)
-    if n % 3 == 0:
-        tr_n = tr_n + tr_n[-3:]
-    else:
-        tr_n = tr_n + tr(n % 3 * 3)
-    return int(tr_n, 3)
-
-s = []
-for n in range(1, 100):
-    if alg(n) <= 138:
-        s.append(alg(n))
-print(max(s))
+for p in range(1, 100):
+    for x in range(1, 120):
+        for y in range(1, 120):
+            if 600 + ((600 * (p // 100)) + ((600 - 5 * x - 5 * y) * (p // 100)) // 2) * 10 == 1740 and x + y == 120:
+                print(x, y, p)

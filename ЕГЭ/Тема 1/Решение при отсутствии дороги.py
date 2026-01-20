@@ -45,4 +45,3 @@ if best_permutation:
     index_A = best_permutation.index('A')
     index_G = best_permutation.index('G')
 
-# код который основан на длине дорог указанных в графах, появился из-за моего ошибочного мнения

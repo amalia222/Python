@@ -9,5 +9,5 @@ for i in list_val:
       if i[0] not in 'АСТ':
         max_index = curr_index
 print(max_index)
-print(list_val[5184])
+print(list_val[5162])
 print(list_val[5184])
