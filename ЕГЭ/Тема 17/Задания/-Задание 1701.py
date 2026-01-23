@@ -10,8 +10,8 @@ for i in range(len(list_val) - 1):
             if (list_val[i]) ** 2 + (list_val[i + 1]) ** 2 < min_sum:
                 min_sum = (list_val[i]) ** 2 + (list_val[i + 1]) ** 2
 print(count_pair, min_sum)
-answer1 = 2851
-answer2 = 504410
+answer1 = ...
+answer2 = ...
 
 #
 
