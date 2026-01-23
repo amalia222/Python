@@ -224,9 +224,12 @@ def show_detailed_progress_table():
         ax.set_axis_off()
         return fig
 
+    # Сортируем результаты по времени, чтобы попытки отображались в хронологическом порядке
+    results.sort(key=lambda x: x[0])
+
     # Группируем результаты по дате и типу задания
-    # date -> task_type -> task_number -> result
-    date_type_task_result = defaultdict(lambda: defaultdict(dict))
+    # date -> task_type -> list[(task_number, result)]
+    date_type_task_result = defaultdict(lambda: defaultdict(list))
 
     # Собираем все уникальные даты и типы заданий
     all_dates = set()
@@ -251,8 +254,8 @@ def show_detailed_progress_table():
             except Exception:
                 continue
 
-        # Сохраняем только последний результат для каждого задания на каждую дату
-        date_type_task_result[date_only][int(task_type)][int(task_number)] = r
+        # Сохраняем ВСЕ результаты (попытки)
+        date_type_task_result[date_only][int(task_type)].append((int(task_number), r))
         all_dates.add(date_only)
         all_types.add(int(task_type))
 
@@ -268,7 +271,7 @@ def show_detailed_progress_table():
     for date in sorted_dates:
         max_t = 0
         for task_type in sorted_types:
-            tasks = date_type_task_result[date].get(task_type, {})
+            tasks = date_type_task_result[date].get(task_type, [])
             if len(tasks) > max_t:
                 max_t = len(tasks)
         max_tasks_per_date.append(max(1, max_t)) # Минимум 1 слот высоты
@@ -312,7 +315,10 @@ def show_detailed_progress_table():
         for j, task_type in enumerate(sorted_types):
             if task_type in date_type_task_result[date]:
                 tasks = date_type_task_result[date][task_type]
-                sorted_tasks = sorted(tasks.items())
+                # Сортируем по номеру задания. 
+                # Сначала разворачиваем список (reversed), чтобы последние попытки шли первыми (stable sort сохранит это).
+                # Таким образом, новые попытки будут отображаться выше старых (как и даты).
+                sorted_tasks = sorted(reversed(tasks), key=lambda x: x[0])
                 
                 num_tasks = len(sorted_tasks)
                 if num_tasks > 0:
