@@ -1,11 +1,11 @@
-# Решение
+def game(heap, moves, to):
+    if heap >= 313:
+        return moves % 2 == to % 2
+    if moves == to:
+        return False
+    return [game(heap + 2, moves + 1, to), game(heap + 3, moves + 1, to), game(heap * 2, moves + 1, to)]
 
-
-
-
-
-
-
+print()
 answer = ...
 
 #
