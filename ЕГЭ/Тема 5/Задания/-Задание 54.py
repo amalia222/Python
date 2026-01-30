@@ -3,13 +3,13 @@
     return int(bin_n, 2)
 count = 0
 n = 500000000
-while n <= 1000000000:
-    if 1_000_000_000 <= alg(n) <= 1_789_456_123:
+while n <= 1500000000:
+    if 1_000_000_000 < alg(n) < 1_789_456_123:
         count += 1
     n += 1
 print(count)'''
 answer = 197364032
-
+# 197364032
 #
 
 from tests.conftest import result_register
