@@ -1,11 +1,8 @@
-# Решение
-
-
-
-
-
-
-
+def f(x, y, s):
+    if x > y:
+        return 0
+    if x == y:
+        return int(s)
 answer = ...
 
 #
