@@ -13,17 +13,16 @@ def alg(n):
         else:
             bin_n += '1'
     return int(bin_n, 2)
+s = []
+for n in range(1, 1000):
+    if alg(n) > 1028:
+        s.append(alg(n))
+print(min(s))
 
-count = 0
-n = 50000000
-while n != 500000000:
-    if 123456789 <= alg(n) <= 1987654321:
-        count += 1
-print(count)
-answer = ...
+answer = 1035
 
 #
 
 from tests.conftest import result_register
 if answer is not Ellipsis:
-    print(result_register(5, 56, answer, 'f6e1eed3417f1dbf09acd31a21621ef3'))
+    print(result_register(5, 57, answer, 'a34bacf839b923770b2c360eefa26748'))
