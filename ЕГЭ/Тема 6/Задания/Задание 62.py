@@ -1,9 +1,8 @@
-# Решение
+from turtle import *
+tracer(0)
+k = 15
 
-
-
-
-
+right(180)
 
 
 answer = ...

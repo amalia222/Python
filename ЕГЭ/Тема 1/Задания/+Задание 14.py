@@ -1,7 +1,6 @@
 from itertools import *
-
-table = '15 16 26 27 29 35 37 38 48 49 51 53 58 61 62 67 72 73 75 83 84 85 92 94'
-graph = 'АБ БА БВ ВБ ВК КВ КИ ИК ИЖ ЖИ ЖЕ ЕЖ ЕА АЕ АГ ГА ГЕ ЕГ ВД ДВ ДК КД ГД ДГ'
+table = '15 16 26 27 29 35 37 38 48 49 51 53 58 61 62 67 72 73 76 83 84 85 92 94'
+graph = 'АБ БА БВ ВБ АЕ ЕА АГ ГА ГЕ ЕГ ВК КВ ВД ДВ ДК КД КИ ИК ИЖ ЖИ ЖЕ ЕЖ ГД ДГ'
 
 for p in permutations('АБВГДЕЖИК'):
     new_graph = table
@@ -10,7 +9,7 @@ for p in permutations('АБВГДЕЖИК'):
     if set(new_graph.split()) == set(graph.split()):
         print(p)
 
-answer = ...
+answer = 37
 
 #
 
