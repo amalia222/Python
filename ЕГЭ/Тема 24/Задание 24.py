@@ -5,6 +5,8 @@
 данного алгоритма.
 Ответ: 15
 """
+import re
+
 # LDR
 # 012
 count = 0
@@ -21,3 +23,5 @@ with open('24.txt') as f:
         else:
             count = 0
 print(m)
+
+print(len(max(re.findall(r'(?:LDR)+(?:L|LD)?', open('24.txt').readline()), key=len)))
