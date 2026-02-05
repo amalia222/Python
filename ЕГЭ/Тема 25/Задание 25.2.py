@@ -21,6 +21,6 @@ for num in range(200000001, 200000100):
     divs = get_divs(num)
     if len(divs) > 5:
         p = divs[0] * divs[1] * divs[2] * divs[3] * divs[4]
-        if p < num:
+        if 0 < p < num:
             print(p)
 
