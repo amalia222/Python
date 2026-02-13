@@ -1,9 +1,29 @@
-def game(heap, to, moves):
-    if heap <= 31:
-        return moves % 2 == to % 2
-    if moves == to:
-        return 0
-    h = [game(heap - 2, moves + 1, to), game(heap - 5, moves + 1, to), game(heap // 3, moves + 1, to)]
-    return any(h)
+from turtle import *
 
-print(min([s for s in range(32, 150) if not game(s, 0, 1) and game(s, 0, 2)]))
+tracer(0)
+k = 15
+
+for i in range(2):
+    forward(17 * k)
+    right(90)
+    forward(10 * k)
+    right(90)
+
+up()
+
+forward(7 * k)
+right(90)
+
+down()
+
+for i in range(2):
+    forward(20 * k)
+    right(90)
+    forward(4 * k)
+    right(90)
+up()
+for x in range(-k ,k):
+    for y in range(-k, k):
+        goto(x * k, y * k)
+        dot(3)
+exitonclick()
