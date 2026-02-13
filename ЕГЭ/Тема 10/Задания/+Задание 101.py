@@ -3,7 +3,7 @@ import re
 
 text = open('+Задание 101.txt').read()
 
-print(len(re.findall(r'.ток.', text)))
+print(len(re.findall(r'.*ток.*', text)))
 
 answer = 31
 
