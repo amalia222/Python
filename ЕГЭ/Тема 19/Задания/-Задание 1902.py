@@ -2,16 +2,16 @@ def game(heap, moves, to):
     if heap >= 112:
         return moves % 2 == to % 2
     if moves == to:
-        return False
+        return 0
     s = [1, heap]
-    for i in range(2, int(heap ** 0.5)):
+    for i in range(2, heap):
         if heap % i == 0:
             s.append(i)
     h = [game(heap + i, moves + 1, to) for i in s]
     return any(h)
-'''print([s for s in range(1, 111) if game(s, 0, 2) and not game(s, 0, 1)])'''
-print(game(27, 0, 2))
-answer = 37
+print([s for s in range(1, 111) if game(s, 0, 2) and not game(s, 0, 1)])
+print(game(28, 0, 2))
+answer = 54
 
 #
 
