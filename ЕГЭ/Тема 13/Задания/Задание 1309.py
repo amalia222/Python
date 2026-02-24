@@ -1,11 +1,15 @@
-# Решение
-
-
-
-
-
-
-
+from ipaddress import *
+max_count = 0
+for mask in range(7, 33):
+    net = ip_network(f'130.0.5.80/{mask}', False)
+    count = 0
+    count1 = f'{net.network_address:b}'.count('1')
+    for i in net:
+        if f'{i:b}'.count('1') == count1:
+            count += 1
+    if count > max_count:
+        max_count = count
+print(max_count)
 answer = ...
 
 #
