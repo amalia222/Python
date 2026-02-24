@@ -9,7 +9,7 @@ def game(heap, moves, to):
             s.append(i)
     h = [game(heap + i, moves + 1, to) for i in s]
     return any(h)
-print([s for s in range(1, 111) if game(s, 0, 2) and not game(s, 0, 1)])
+'''print([s for s in range(1, 111) if game(s, 0, 2) and not game(s, 0, 1)])'''
 print(game(27, 0, 2))
 answer = 37
 
