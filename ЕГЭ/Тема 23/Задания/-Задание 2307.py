@@ -1,11 +1,12 @@
-def f(x, y, k3, k4):
+def f(x, y, k = 0):
     if x == y:
         return 1
-    if x > y or k3 + k4 > 1:
+    if x > y or k > 2:
         return 0
-    return f(x + 1, y, k3, k4) + f(x + 2, y, k3, 4) + f(x * 2, y, k3 + 1, k4) + f(x * 3, y, k3, k4 + 1)
-print(f(1, 10, 0, 0))
-answer = 19
+    return f(x + 1, y, k) + f(x + 2, y, k) + f(x * 2, y, k + 1) + f(x * 3, y, k + 1)
+
+print(f(1, 10))
+answer = 196
 
 #
 
