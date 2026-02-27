@@ -1,11 +1,11 @@
-# Решение
+def f(x, step, numbers):
+    if step == 15:
+        numbers.add(x)
+    return f(x * 2, step + 1, numbers) + f(x * 2 + 1, step + 1, numbers)
 
-
-
-
-
-
-
+nums = set()
+f(1, 0, nums)
+print(len(nums))
 answer = ...
 
 #
