@@ -1,10 +1,13 @@
-# Решение
-
-
-
-
-
-
+from time import time
+s = input()
+start = time()
+s_set = sorted(set(s))
+s_matr = sorted(list(s))
+for i in s_set:
+    s_matr.remove(i)
+print(*s_matr)
+end = time()
+print(end - start)
 
 answer = ...
 
