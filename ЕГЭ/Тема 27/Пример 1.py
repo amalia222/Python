@@ -1,7 +1,5 @@
 from math import *
 
-stars = list(list(map(float, line.replace(',', '.').split())) for line in open('Пример 1 B.txt').readlines())
-
 def distance(p1, p2):
     return sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
 
@@ -38,6 +36,17 @@ def clusterize(points, eps):
 
     return clusters
 
+
+# Решение для файла А
+stars = list(list(map(float, line.replace(',', '.').split())) for line in open('Пример 1 A.txt').readlines())
+clusters = clusterize(stars, 1)
+center0 = cluster_center(clusters[0])
+center1 = cluster_center(clusters[1])
+print(int(center0[0] * 10000), int(center0[1] * 10000))
+print(int(center1[0] * 10000), int(center1[1] * 10000))
+
+# Решение для файла Б
+stars = list(list(map(float, line.replace(',', '.').split())) for line in open('Пример 1 B.txt').readlines())
 clusters = clusterize(stars, 1)
 clusters.sort(key=len, reverse=True)
 clusters = clusters[:3]
