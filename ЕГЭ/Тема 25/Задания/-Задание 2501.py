@@ -1,8 +1,9 @@
 from fnmatch import fnmatch
-for i in range(4104676, 10 ** 10, 2026):
+for i in range(2026, 10 ** 10, 2026):
     if fnmatch(str(i), '5?34?71*2'):
         print(i)
-answer = [553497122,
+answer = ...
+'''[553497122,
           5134171692,
           5134971962,
           5234671422,
@@ -12,7 +13,7 @@ answer = [553497122,
           5734171592,
           5734971862,
           5834671322]
-
+'''
 #
 
 from tests.conftest import result_register

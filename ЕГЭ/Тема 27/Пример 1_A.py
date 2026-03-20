@@ -43,6 +43,3 @@ center0 = cluster_center(clusters[0])
 center1 = cluster_center(clusters[1])
 print(int(center0[0] * 10000), int(center0[1] * 10000))
 print(int(center1[0] * 10000), int(center1[1] * 10000))
-
-
-

@@ -1,11 +1,7 @@
-# Решение
-
-
-
-
-
-
-
+from fnmatch import fnmatch
+for i in range(107, 10 ** 9, 107):
+  if fnmatch(str(i), '38?375*9'):
+    print(i, i / 107)
 answer = ...
 
 #
