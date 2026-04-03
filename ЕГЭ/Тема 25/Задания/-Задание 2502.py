@@ -1,16 +1,24 @@
-def sumdel(n):
-    s = {0}
+'''def is_simp(n):
     for i in range(2, int(n ** 0.5) + 1):
         if n % i == 0:
-            s.add(i)
-            s.add(n // i)
-    return sum(s)
+            return False
+    else:
+        return True
 
-for n in range(1325000, 1300000, -1):
-    s = sumdel(n)
-    if 0 < s <= 30000 and s % 5 == 0:
-        print(n)
-answer = [1324991, 1324919, 1324891, 1324811, 1324601]
+
+def get_divs(n):
+    count_divs = set()
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0 and is_simp(i):
+            count_divs.add(i)
+    return sum(count_divs)
+
+
+for i in range(1325000, 1, -1):
+    divs = get_divs(i)
+    if 0 < divs < 30000 and (divs % 5 == 0):
+        print(i)'''
+answer = [1325000, 1324998, 1324995, 1324994, 1324992]
 
 #
 
