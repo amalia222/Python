@@ -6,8 +6,11 @@ def sumdel(n):
             s.add(n // i)
     return sum(s)
 
-print(sumdel(10))
-answer = [...]
+for n in range(1325000, 1300000, -1):
+    s = sumdel(n)
+    if 0 < s <= 30000 and s % 5 == 0:
+        print(n)
+answer = [1324991, 1324919, 1324891, 1324811, 1324601]
 
 #
 
