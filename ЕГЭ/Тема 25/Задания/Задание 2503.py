@@ -1,12 +1,22 @@
-# Решение
+def divs(n):
+    s = {1}
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            s.add(i)
+            s.add(n // i)
+    return len(s)
 
 
+s = []
+for i in range(10 ** 10, 10 ** 9, -1):
+    i_divs = divs(i)
+    if (i - i_divs) % 23 == 0:
+        if len(s) == 5:
+            break
 
-
-
-
-# Ответ в виде списка чисел []
-answer = ...
+s.reverse()
+print(*s)
+answer = s
 
 #
 
