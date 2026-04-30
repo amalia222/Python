@@ -3,21 +3,46 @@
 # -- и более подряд
 # 8, 9
 #
-import re
+
+
+
+max_len = 0
+max_seq = ""
 
 line = open('Пример 1.txt').read()
-# s = sorted(re.findall(r'(?=((?:0|[1-7][0-7]*)(?:\*(?:0|[1-7][0-7]*))*(?:-(?:0|[1-7][0-7]*))*))', line), key=len, reverse=True)
 
-line = re.sub(r'\*{2,}', ' ', line)
-line = re.sub(r'-{2,}', ' ', line)
-line = re.sub(r'-\*', ' ', line)
-line = re.sub(r'\*-', ' ', line)
-line = re.sub(r'8', ' ', line)
-line = re.sub(r'9', ' ', line)
+left = 0
+right = 0
+last_minus_pos = -1  # позиция последнего '-' в текущем окне
 
-parts = line.split()
+while right < len(line):
+    c = line[right]
 
-parts = [p.strip('-*0') for p in parts]
+    if c not in '01234567*-':
+        # Недопустимый символ (8, 9, пробелы и т.д.)
+        left = right + 1
+        last_minus_pos = -1
 
-for p in sorted(parts, key=len, reverse=True)[:100]:
-    print(p, len(p))
+    elif c in '*-' and right > left and line[right - 1] in '*-':
+        # Два спецсимвола подряд: **, --, -*, *-
+        left = right + 1
+        last_minus_pos = -1
+
+    elif c == '*' and last_minus_pos >= left:
+        # '*' после '-' — нарушение порядка операций!
+        # Новое окно начинается сразу после последнего '-'
+        left = last_minus_pos + 1
+        last_minus_pos = -1
+    # Если текущая подстрока верная
+    else:
+        if c == '-':
+            last_minus_pos = right
+        cur_len = right - left + 1
+        if cur_len > max_len:
+            max_len = cur_len
+            max_seq = line[left:right + 1]
+
+    right += 1
+
+max_seq = max_seq.strip('-*')
+print(max_seq, len(max_seq))
