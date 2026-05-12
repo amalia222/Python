@@ -1,19 +1,37 @@
-line = open('Задание 2403.txt').readline()
-line0 = line[::]
-max_len = 0
-ans = ''
-for n in '0123456789':
-    line0 = line0.replace(n, n + ' ' + n)
+line = open('-Задание 2403.txt').readline()
+left = 0
+right = 1
+vow = 'AEIOUY'
+odd = '13579'
+dig = '0123456789'
+len_line = []
+'''while len(line) > right:
+    ch = line[left]
+    if ch not in odd:
+        right += 1
+        left += 1
+    else:
+        while line[right] != line[left] or line[right] not in dig:
+            right += 1
+        if line[left - 1:right].isalpha() and sum([line[left - 1:right].count(x) for x in vow]) == len(line[left - 1:right]) // 2:
+            len_line.append(line[left:right + 1])
+        left = right + 1
+        right += 1'''
+while len(line) > left:
+    ch = line[left]
+    if ch not in odd:
+        right += 1
+        left += 1
+    else:
+        count_vow = 0
+        count_con = 0
+        while line[right].isalpha()
 
-lines = line0.split()
 
-for i in lines:
-    if i[0] in '13579' and i[0] == i[-1]:
-        if sum(i.count(ch) for ch in 'AEIOUY') == len(i) // 2:
-            max_len = max(max_len, len(i))
-            ans = i
 
-print(line.find(ans))
+ans = max(len_line, key = len)
+print(line.find(ans), ans)
+
 answer = 521270
 
 #

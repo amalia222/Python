@@ -1,5 +1,5 @@
 def f(x, y, s):
-    if (x + 2) > y:
+    if (x - 2) > y:
         return 0
     if x == y:
          return 1
