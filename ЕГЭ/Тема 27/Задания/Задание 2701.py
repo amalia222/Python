@@ -10,41 +10,69 @@ def clusters_average(clusters):
 
 
 def cluster_center(cluster):
-    sum_distance = [sum([distance(star1, star2) for star1 in cluster]) for star2 in cluster]
-    return cluster[sum_distance.index(min(sum_distance))]
+    return min(cluster, key=lambda p: sum(distance(p, q) for q in cluster))
 
+# Альтернатива atan2
+def get_angel(center, p):
+    dx = p[0] - center[0]
+    dy = p[1] - center[1]
+    if dx > 0:
+        return atan(dy / dx) * 180 / pi
+    elif dx < 0 <= dy:
+        return (atan(dy / dx) + pi) * 180 / pi
+    elif dx < 0 < dy:
+        return (atan(dy / dx) - pi) * 180 / pi
+    elif dx == 0 and dy > 0:
+        return 90.0
+    elif dx == 0 and dy < 0:
+        return -90.0
+    else:
+        return 0.0
 
-def clusterize(dots, eps):
+# -------------- II ------------------
+def cross(center, p1, p2):
+    a = (p1[0] - center[0]) * (p2[1] - center[1])
+    b = (p1[1] - center[1]) * (p2[0] - center[0])
+    return a - b
+
+def get_angel_2(center, p1, p2):
+    v1 = (p1[0] - center[0], p1[1] - center[1])
+    v2 = (p2[0] - center[0], p2[1] - center[1])
+    d = v1[0] * v2[0] + v1[1] * v2[1]
+    m1 = sqrt(v1[0] ** 2 + v1[1] ** 2)
+    m2 = sqrt(v2[0] ** 2 + v2[1] ** 2)
+    return acos(max(-1, min(1, d / (m1 * m2)))) * 180 / pi
+
+# --------------------------------------
+
+def clusterize(dots, center, radius=50, max_angle=20):
+    points = sorted(
+        [s for s in dots if distance(center, s) <= radius],
+        key=lambda p: get_angel(center, p)
+    )
     clusters = []
-    for dot in dots:
-        matched_index = []
-        for i in range(len(clusters)):
-            for d in clusters[i]:
-                if distance(dot, d) <= eps and (distance(dot, d) // 0.342) <= 100 + eps:
-                    matched_index.append(i)
-                    break
-        if not matched_index:
-            clusters.append([dot])
+    cluster_start = None
+    for p in points:
+        a = get_angel(center, p)
+        if cluster_start is None or a - cluster_start > max_angle:
+            clusters.append([p])
+            cluster_start = a
         else:
-            first_idx = matched_index[0]
-            clusters[first_idx].append(dot)
-            for i in reversed(matched_index[1:]):
-                clusters[first_idx].extend(clusters[i])
-                del clusters[i]
+            clusters[-1].append(p)
     return clusters
 
 
 starsA = list(list(map(float, line.replace(',', '.').split())) for line in open('2701_А.txt').readlines())
 starsB = list(list(map(float, line.replace(',', '.').split())) for line in open('2701_Б.txt').readlines())
 
-clusterizeA = clusterize(starsA, 3)
+clusterizeA = clusterize(starsA, [5, -9])
 clusters_avgA = clusters_average([cluster_center(cluster) for cluster in clusterizeA])
 
 print(len(clusterizeA), clusters_avgA)
 
-clusterizeB = clusterize(starsB, 1.5)
+clusterizeB = clusterize(starsB, [-10, -7])
 clusters_avgB = clusters_average([cluster_center(cluster) for cluster in clusterizeB])
-print(*sorted(clusterizeB, key = len), sep = '\n')
+print(*sorted(clusterizeB, key=len), sep='\n')
 print(len(clusterizeB), clusters_avgB)
 
 # Ответ: значения через запятую

@@ -1,13 +1,16 @@
-line = open('-Задание 2403.txt').readline()
+line = open('+Задание 2403.txt').readline()
+
 left = 0
-right = 0
 vow = 'AEIOUY'
 odd = '13579'
-dig = '0123456789'
 max_len = 0
 max_pos = -1
-len_line = []
+
 '''
+right = 0
+dig = '0123456789'
+len_line = []
+
 while len(line) > right:
     ch = line[left]
     if ch not in odd:
@@ -26,9 +29,7 @@ print(line.find(ans), ans)
 '''
 
 while len(line) > left:
-    if line[left] not in odd:
-        left += 1
-    else:
+    if line[left] in odd:
         count_vow = 0
         count_con = 0
         right = left + 1
@@ -46,7 +47,7 @@ while len(line) > left:
                 max_len = length
                 max_pos = left
 
-        left += 1
+    left += 1
 
 print(max_len, max_pos)
 
