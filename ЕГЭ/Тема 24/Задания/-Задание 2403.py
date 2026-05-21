@@ -5,7 +5,9 @@ vow = 'AEIOUY'
 odd = '13579'
 dig = '0123456789'
 len_line = []
-'''while len(line) > right:
+print(len(line))
+
+while len(line) > right:
     ch = line[left]
     if ch not in odd:
         right += 1
@@ -16,7 +18,9 @@ len_line = []
         if line[left - 1:right].isalpha() and sum([line[left - 1:right].count(x) for x in vow]) == len(line[left - 1:right]) // 2:
             len_line.append(line[left:right + 1])
         left = right + 1
-        right += 1'''
+        right += 1
+
+'''
 while len(line) > left:
     ch = line[left]
     if ch not in odd:
@@ -27,10 +31,9 @@ while len(line) > left:
         count_con = 0
         while line[right].isalpha()
 
-
-
+'''
 ans = max(len_line, key = len)
-print(line.find(ans), ans)
+print(line.find(ans, 5100000), ans)
 
 answer = 521270
 
