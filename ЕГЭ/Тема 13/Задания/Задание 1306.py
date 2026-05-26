@@ -1,11 +1,10 @@
-# Решение
-
-
-
-
-
-
-
+from ipaddress import ip_network
+net = ip_network('205.182.128.0/255.255.192.0', 0)
+count = 0
+for i in net:
+    if f'{i:b}'[16:25].count('1') == f'{i:b}'[16:25].count('0'):
+        count += 1
+print(count)
 answer = ...
 
 #
