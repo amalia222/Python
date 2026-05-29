@@ -6,7 +6,7 @@
 
 
 
-answer = 60
+answer = 0
 
 #
 
