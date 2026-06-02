@@ -6,7 +6,12 @@ for i in range(2):
     right(90)
     forward(8 * k)
     right(90)
-
+left(90)
+for i in range(2):
+    forward(15 * k)
+    right(90)
+    forward(8 * k)
+    right(90)
 up()
 for x in range(-k, k + 1):
     for y in range(-k, k + 1):
