@@ -1,15 +1,13 @@
-'''f = [0] * 1542613239
-for n in range(765432015, 1542613239):
-    if n == 0:
-        f[n] = 0
+f = [0] * 1542613240
+for n in range(765432015, 1542613240):
     if n > 0:
         f[n] = f[n // 10] + n % 10
 count = 0
 for i in range(len(f) - 1):
     if f[i] > f[i + 1]:
         count += 1
-print(count)'''
-answer = 77718122
+print(count)
+answer = ...
 
 #
 

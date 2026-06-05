@@ -1,11 +1,5 @@
-# Решение
-
-
-
-
-
-
-
+def game(heap, moves, to):
+    if h
 answer = ...
 
 #
