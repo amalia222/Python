@@ -21,7 +21,7 @@ l = []
 for i in range(4555705, 4600000):
     if i % 10 != 3:
         s, k = sum_del(i)
-        if (i - s - k) % 100 == 23:
+        if (i - s - k) % 100 == 23 and (i - s - k) > 0:
             l.append(i)
             if len(l) == 5:
                 break
