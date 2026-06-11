@@ -8,7 +8,7 @@ def game(heap, moves, to):
          game(heap // 3, moves + 1, to)]
     return any(h) if (moves + 1) % 2 == to % 2 else all(h)
 
-print([s for s in range(20008, 100000) if game(s, 0, 2) and not game(s, 0, 1)])
+print([s for s in range(20008, 100000) if game(s, 0, 4) and not game(s, 0, 2)])
 
 answer = 60025
 

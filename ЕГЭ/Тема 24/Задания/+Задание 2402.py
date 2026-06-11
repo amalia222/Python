@@ -1,8 +1,8 @@
-line = open('-Задание 2402.txt').readline()
-lines = line.replace('DE', '*').split('*')
+line = open('+Задание 2402.txt').readline()
+lines = line.replace('DE', 'D E').split()
 max_len = 0
 for i in range(len(lines)):
-    line0 = 'DE'.join(lines[i:i + 241])
+    line0 = ''.join(lines[i:i + 241])
     if len(line0) > max_len:
         max_len = len(line0)
 
